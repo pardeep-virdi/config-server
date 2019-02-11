@@ -56,7 +56,7 @@
                     <imageName>${docker.registry}/${project.artifactId}:${project.version}-${buildNumber}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <buildArgs>
-                        <NAME>${project.build.finalName}.jar</NAME>
+                        <build>${project.build.finalName}.jar</build>
                     </buildArgs>
                     <resources>
                         <resource>
