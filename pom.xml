@@ -48,11 +48,11 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-            <plugin>
-                <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
-                <version>1.0.0</version>
-		<executions>
+          <plugin>
+        <groupId>com.spotify</groupId>
+             <artifactId>dockerfile-maven-plugin</artifactId>
+             <version>1.4.3</version>
+             <executions>
                  <execution>
                      <id>default</id>
                      <goals>
@@ -60,31 +60,11 @@
                      </goals>
                  </execution>
              </executions>
-                <configuration>
-                    <imageName>config-server:${project.version}-${buildNumber}</imageName>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
-                    <buildArgs>
-                        <build>config-server-1.0.0-SNAPSHOT.jar</build>
-                    </buildArgs>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}/classes</directory>
-                        </resource>
-                    </resources>
-                    <forceTags>true</forceTags>
-                    <imageTags>
-                        <imageTag>latest</imageTag>
-                        <imageTag>${buildNumber}</imageTag>
-                        <imageTag>${project.version}</imageTag>
-                    </imageTags>
-                </configuration>
-            </plugin>
+             <configuration>
+             <repository>docker.io/kkapelon/docker-maven-comparison</repository>
+                 <tag>${project.version}</tag>
+             </configuration>
+         </plugin>
 
 			
 		</plugins>
