@@ -53,10 +53,10 @@
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.0.0</version>
                 <configuration>
-                    <imageName>${docker.registry}/${project.artifactId}:${project.version}-${buildNumber}</imageName>
+                    <imageName>config-server:${project.version}-${buildNumber}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
                     <buildArgs>
-                        <build>${project.build.finalName}.jar</build>
+                        <build>config-server-1.0.0-SNAPSHOT.jar</build>
                     </buildArgs>
                     <resources>
                         <resource>
