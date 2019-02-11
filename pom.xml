@@ -52,6 +52,14 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <version>1.0.0</version>
+		<executions>
+                 <execution>
+                     <id>default</id>
+                     <goals>
+                         <goal>build</goal>
+                     </goals>
+                 </execution>
+             </executions>
                 <configuration>
                     <imageName>config-server:${project.version}-${buildNumber}</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
