@@ -49,7 +49,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
           <plugin>
-        <groupId>com.spotify</groupId>
+             <groupId>com.spotify</groupId>
              <artifactId>dockerfile-maven-plugin</artifactId>
              <version>1.4.3</version>
              <executions>
@@ -60,9 +60,12 @@
                      </goals>
                  </execution>
              </executions>
-             <configuration>
-             <repository>docker.io/kkapelon/docker-maven-comparison</repository>
-                 <tag>${project.version}</tag>
+             <configuration>               
+             <imageName>config-server:${project.version}-${buildNumber}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <buildArgs>
+                        <build>config-server-1.0.0-SNAPSHOT.jar</build>
+                    </buildArgs>
              </configuration>
          </plugin>
 
