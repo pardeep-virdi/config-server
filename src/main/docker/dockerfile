@@ -1,0 +1,4 @@
+FROM openjdk:8-jdk-alpine 
+ARG build
+ADD $build app.jar
+ENTRYPOINT exec java  -jar /app.jar
