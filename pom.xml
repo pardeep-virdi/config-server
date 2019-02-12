@@ -48,27 +48,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-          <plugin>
-             <groupId>com.spotify</groupId>
-             <artifactId>dockerfile-maven-plugin</artifactId>
-             <version>1.4.3</version>
-             <executions>
-                 <execution>
-                     <id>default</id>
-                     <goals>
-                         <goal>build</goal>
-                     </goals>
-                 </execution>
-             </executions>
-             <configuration>               
-             <imageName>config-server:${project.version}-${buildNumber}</imageName>
-                    <dockerDirectory>src/main/docker</dockerDirectory>
-                    <buildArgs>
-                        <build>config-server-1.0.0-SNAPSHOT.jar</build>
-                    </buildArgs>
-             </configuration>
-         </plugin>
-
 			
 		</plugins>
 	</build>
